@@ -5,7 +5,13 @@
 input[type="text"],input[type="email"],input[type="password"]{
     @apply w-full border my-1 px-3 rounded-2xl;
 }
-
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Make sure the body takes full height */
+    background: url('/background.jpg') no-repeat center center/cover;
+  }
+  
 button{
     @apply bg-gray-300 
 }

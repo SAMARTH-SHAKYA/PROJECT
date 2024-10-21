@@ -20,6 +20,7 @@ export default function RegisterPage() {
 
   return (
     <div className="register-page">
+      <div className="blur-background"></div> {/* Added blur background */}
       <div className="register-box">
         <h1 className="register-title">Register</h1>
         <form className="register-form" onSubmit={registerUser}>

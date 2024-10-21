@@ -28,6 +28,7 @@ export default function LoginPage() {
 
   return (
     <div className="login-page">
+      <div className="blur-background"></div> {/* Added blur background */}
       <div className="login-box">
         <h1 className="login-title">Login</h1>
         <form className="login-form" onSubmit={handleLoginSubmit}>
