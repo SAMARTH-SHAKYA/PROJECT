@@ -71,7 +71,7 @@ app.post('/register', async (req,res)=>{
        
 //     }
 // });
-app.post('/login', async (req, res) => {
+app.post('/login', async (req, res) => {   
     const { email, password } = req.body;
     console.log(req.body);
 
@@ -113,8 +113,8 @@ app.get('/profile', (req, res) => {
     if (token) {
         jwt.verify(token, jwtSecret, {}, async (err, user) => {
             if (err) throw err;
-            // res.json(user); // Send user data if the token is valid
-            // console.log(user);
+            res.json(user); // Send user data if the token is valid
+            console.log(user);
             const userDoc = await User.findById(user._id);
             
         });
@@ -122,6 +122,10 @@ app.get('/profile', (req, res) => {
         res.json(null); // No token, respond with null
     }
 });
+
+app.post('/logout',(req,res)=>{
+    res.cookie('token','').json(true);
+})
 
 const PORT = 4000;
 app.listen(PORT, () => {
