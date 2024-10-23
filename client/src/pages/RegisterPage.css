@@ -1,9 +1,11 @@
+/* RegisterPage.css */
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   overflow: hidden; /* Prevents scrolling */
-  background: url('./BackGround-image.jpeg') no-repeat center center/cover;
+  background: url('./BackGround-image.jpeg') no-repeat center center/cover; /* Ensure background image is set */
 }
 
 .register-page {
@@ -11,7 +13,7 @@ html, body {
   justify-content: center;
   align-items: center;
   height: 100vh; /* Full height of the viewport */
-  position: relative; /* To position the blur overlay */
+  position: relative; /* Relative positioning for content layering */
 }
 
 .blur-background {
@@ -38,7 +40,7 @@ html, body {
   font-size: 2.25rem;
   text-align: center;
   margin-bottom: 1rem;
-  color: #000; /* Dark text color */
+  color: #333; /* Darker color for text */
 }
 
 .register-form {
@@ -54,13 +56,12 @@ html, body {
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   font-size: 1rem;
-  color: #333; /* Darker input text color */
 }
 
 .register-button {
   width: 100%;
   padding: 0.75rem;
-  background-color: #1d4ed8;
+  background-color: hsl(224, 85%, 61%);
   color: white;
   font-weight: 600;
   text-align: center;
@@ -70,14 +71,14 @@ html, body {
 }
 
 .register-button:hover {
-  background-color: #2563eb;
+  background-color: hsl(255, 90%, 40%);
   transform: scale(1.05);
 }
 
 .register-footer {
   text-align: center;
   padding: 0.5rem 0;
-  color: #000; /* Darker footer text color */
+  color: #333; /* Darker color for text */
 }
 
 .login-link {
