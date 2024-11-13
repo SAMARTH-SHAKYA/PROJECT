@@ -6,6 +6,7 @@ const User = require('./Models/Users.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require("cookie-parser");
+const imageDownloader = require('image-downloader');
 
 const app = express();
 
@@ -14,11 +15,16 @@ const jwtSecret = 'safwewrq343trrdfq3';
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use('/uploads/', express.static(__dirname + '/uploads/'));
 app.use(cors({
     credentials:true,
     origin:'http://localhost:5173'
 }));
 
+// app.use('/uploads', (req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+//     next();
+// }, express.static(__dirname + '/uploads'));
 
 mongoose.connect(process.env.MONGO_URL);
 
@@ -125,6 +131,17 @@ app.get('/profile', (req, res) => {
 
 app.post('/logout',(req,res)=>{
     res.cookie('token','').json(true);
+})
+console.log({__dirname});
+
+app.post('/upload-by-link',async (req,res)=>{
+    const {link} = req.body;
+    const newName='photo'+ Date.now()+'.jpg';
+   await  imageDownloader.image({
+        url:link,
+        dest: __dirname +'/uploads/'+newName,
+    });
+    res.json(__dirname +'/uploads/'+newName);
 })
 
 const PORT = 4000;

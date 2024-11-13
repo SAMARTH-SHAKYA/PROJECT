@@ -4,8 +4,8 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; /* Prevents scrolling */
-  background: url('/BackGround-image.jpeg') no-repeat center center/cover; /* Ensure background image is set */
+  /* overflow: hidden; Prevents scrolling */
+  /* background: url('/BackGround-image.jpeg') no-repeat center center/cover;
 }
 
 .login-page {
