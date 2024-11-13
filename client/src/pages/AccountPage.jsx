@@ -1,10 +1,10 @@
 import { Navigate, useParams } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import { useContext } from "react";
-import { disconnect } from "mongoose";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import './AccountPage.css'; 
 
 export default function AccountPage() {
     const [Redirect, setRedirect] = useState(null);
@@ -28,11 +28,11 @@ export default function AccountPage() {
         setUser(null);
         setRedirect('/');
     }
-   
-    function LinkClasses(type=null){
-        let classes = 'py-2 px-6';
-        if(type === subpage || (subpage === undefined && type === "profile")){
-            classes += ' bg-primary text-black rounded-full';
+
+    function LinkClasses(type = null) {
+        let classes = 'link-style';
+        if (type === subpage || (subpage === undefined && type === "profile")) {
+            classes += ' active-link';
         }
         return classes;
     }
@@ -44,22 +44,16 @@ export default function AccountPage() {
 
     return (
         <div>
-            <nav className="w-full flex justify-center mt-8 gap-2 mb-8">
-            
+            <nav className="nav-bar">
                 <Link className={LinkClasses('profile')} to={'/account'}>My profile</Link>
-
                 <Link className={LinkClasses('bookings')} to={'/account/bookings'}>My bookings</Link>
-                <Link className={LinkClasses('places')} to={'/account/places'}>My accomodation</Link>
-
+                <Link className={LinkClasses('places')} to={'/account/places'}>My accommodation</Link>
             </nav>
             {subpage === "profile" && (
                 <div className="profile-info">
                     Logged in as {user.name} ({user.email}) <br />
                     <button onClick={logout} className="logout-button">Logout</button>
                 </div>
-            )}
-            {subpage === 'places' && (
-                <PlacesPage></PlacesPage>
             )}
         </div>
     );
