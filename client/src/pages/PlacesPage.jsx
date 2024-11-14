@@ -142,7 +142,7 @@ export default function PlacesPage() {
                                 <input type="text" value={checkOut} onChange={ev => setCheckOut(ev.target.value)} placeholder="11"/>
                             </div>
                             <div>
-                                <h3 className=" mt-2 -mb-1">Max number of</h3>
+                                <h3 className=" mt-2 -mb-1">Max number of </h3>
                                 <input type="number" value={maxGuest} onChange={ev => setMaxGuest(ev.target.value)} />
                             </div>                           
                         </div>
